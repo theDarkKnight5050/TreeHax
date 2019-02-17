@@ -3,9 +3,9 @@
   "version": "1.0",
   "description": "Stay fully informed with this algorithmic bias checker",
 
-  "default_locale": "en",
   "incognito": "not_allowed",
   "permissions": [
+    "history",
     "storage"
   ],
 
