@@ -1,16 +1,16 @@
 {
   "name": "Fair and Balanced",
-  "version": 1.0,
+  "version": "1.0",
   "description": "Stay fully informed with this algorithmic bias checker",
 
-  "default_local": "en",
+  "default_locale": "en",
   "incognito": "not_allowed",
   "permissions": [
     "storage"
   ],
 
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["src/background.js"],
     "persistent": false
   },
 
@@ -22,5 +22,5 @@
   },
 
   "author": "Ahmed Abdalla",
-  "manifest_version": 1.0
+  "manifest_version": 2
 }
