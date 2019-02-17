@@ -14,11 +14,12 @@
     "persistent": false
   },
 
-  "page_action": {
+  "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
 
-    }
+    },
+    "default_title": "Newversify"
   },
 
   "author": "Ahmed Abdalla",
