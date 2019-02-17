@@ -31,6 +31,8 @@ chrome.runtime.onInstalled.addListener(()=> {
   }
 
   function updateBiasScore(freq){
-
+    chrome.storage.sync.set({bias: 0}, function() {
+      console.log("Test bias");
+    });
   }
 })

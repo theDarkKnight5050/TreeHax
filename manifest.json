@@ -1,5 +1,5 @@
 {
-  "name": "Fair and Balanced",
+  "name": "Newversify",
   "version": "1.0",
   "description": "Stay fully informed with this algorithmic bias checker",
 
@@ -15,7 +15,7 @@
   },
 
   "page_action": {
-    "default_popup": "",
+    "default_popup": "popup.html",
     "default_icon": {
 
     }
