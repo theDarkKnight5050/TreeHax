@@ -6,7 +6,8 @@
   "incognito": "not_allowed",
   "permissions": [
     "history",
-    "storage"
+    "storage",
+    "tabs"
   ],
 
   "background": {

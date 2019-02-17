@@ -10,8 +10,13 @@ chrome.runtime.onInstalled.addListener(()=> {
 
   chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab) {
       chrome.storage.sync.get('site_freq_map', function(freq){
-        freq[changeInfo.url] += 1;
-        updateBias();
+        if(freq.contains(changeInfo.url)){
+          freq[changeInfo.url] += 1;
+          chrome.storage.sync.set({'title': tab.title}, function(){
+            console.log("Set title")
+          })
+        }
+        updateBiasScore();
       })
       chrome.storage.sync.get('site_bias_map', function(bias){
         if(bias[changeInfo.url] > 40 || bias[changeInfo.url] < -40){
@@ -31,7 +36,7 @@ chrome.runtime.onInstalled.addListener(()=> {
   }
 
   function updateBiasScore(freq){
-    chrome.storage.sync.set({bias: 0}, function() {
+    chrome.storage.sync.set({bias: 50}, function() {
       console.log("Test bias");
     });
   }
