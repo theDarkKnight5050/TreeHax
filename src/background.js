@@ -10,11 +10,11 @@ chrome.runtime.onInstalled.addListener(()=> {
   })
 
   chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab) {
-    chrome.storage.sync.get('freq', function(data){
+    chrome.storage.sync.get(['freq'], function(data){
       if(changeInfo.url in data.freq){
         data.freq[changeInfo.url] += 1;
         chrome.storage.sync.set({'title': tab.title}, function(){
-          console.log("Set title")
+          console.log("Set title");
         })
       }
       updateBiasScore(data.freq);
@@ -93,7 +93,7 @@ chrome.runtime.onInstalled.addListener(()=> {
       }
       console.log(jsonObjectOfItems);
     })
-    chrome.storage.sync.set({"bias": jsonObjectOfItems});
+    chrome.storage.sync.set({bias: jsonObjectOfItems});
   }
 
   function isEmpty(obj) {
@@ -150,7 +150,7 @@ chrome.runtime.onInstalled.addListener(()=> {
       // }
     }
     console.log(jsonObjectOfItems);
-    chrome.storage.sync.set({"freq": jsonObjectOfItems});
+    chrome.storage.sync.set({freq: jsonObjectOfItems});
     updateBiasScore(jsonObjectOfItems);
   }) }
 
@@ -163,7 +163,7 @@ chrome.runtime.onInstalled.addListener(()=> {
         totalBias += data.bias[item] * freq[item];
       })
     }
-    chrome.storage.sync.set({bias: totalBias/numSites}, function() {
+    chrome.storage.sync.set({myBias: totalBias/numSites}, function() {
       console.log("New bias");
     });
   }
